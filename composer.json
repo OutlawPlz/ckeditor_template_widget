@@ -1,0 +1,14 @@
+{
+    "name": "outlawplz/template_widget",
+    "description": "CKEditor plugins that convert Content Templates into Widgets for Drupal 8.",
+    "type": "drupal-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Matteo Palazzo",
+            "email": "outlaw.plz@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

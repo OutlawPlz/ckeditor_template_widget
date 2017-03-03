@@ -1,0 +1,9 @@
+name: 'Template widget'
+description: 'Convert CKEditor Content Templates into Widgets.'
+
+core: 8.x
+type: module
+package: CKEditor
+
+dependencies:
+  - ckeditor
