@@ -1,5 +1,5 @@
 {
-    "name": "outlawplz/template_widget",
+    "name": "outlawplz/ckeditor_template_widget",
     "description": "CKEditor plugins that convert Content Templates into Widgets for Drupal 8.",
     "type": "drupal-module",
     "license": "GPL-3.0",
