@@ -1,76 +1,81 @@
 CKEDITOR.plugins.add( 'templatewidget', {
 
-  // requires: 'widget',
+  requires: 'widget',
+
   init: function ( editor ) {
 
-    editor.widgets.add( 'clm_50', {
+    editor.widgets.add( 'lt_50', {
 
       editables: {
         left: {
-          selector: '.clm--50 .left'
+          selector: '.lt-50__clm--left'
         },
         right: {
-          selector: '.clm--50 .right'
+          selector: '.lt-50__clm--right'
         }
       },
-      allowedContent: 'div(!clm--50)',
-      requiredContent: 'div(clm--50)',
       upcast: function( element ) {
-        return element.name == 'div' && element.hasClass( 'clm--50' );
+        return element.name == 'div' && element.hasClass( 'lt-50' );
       }
     } );
 
-    editor.widgets.add( 'clm_33x66', {
+    editor.widgets.add( 'lt_33x66', {
 
       editables: {
         left: {
-          selector: '.clm--33x66 .left'
+          selector: '.lt-33x66__clm--left'
         },
         right: {
-          selector: '.clm--33x66 .right'
+          selector: '.lt-33x66__clm--right'
         }
       },
-      allowedContent: 'div(!clm--33x66)',
-      requiredContent: 'div(clm--33x66)',
       upcast: function( element ) {
-        return element.name == 'div' && element.hasClass( 'clm--33x66' )
+        return element.name == 'div' && element.hasClass( 'lt-33x66' )
       }
     } );
 
-    editor.widgets.add( 'clm_66x33', {
+    editor.widgets.add( 'lt_66x33', {
 
       editables: {
         left: {
-          selector: '.clm--66x33 .left'
+          selector: '.lt-66x33__clm--left'
         },
         right: {
-          selector: '.clm--66x33 .right'
+          selector: '.lt-66x33__clm--right'
         }
       },
-      allowedContent: 'div(!clm--66x33)',
-      requiredContent: 'div(clm--66x33)',
       upcast: function( element ) {
-        return element.name == 'div' && element.hasClass( 'clm--66x33' );
+        return element.name == 'div' && element.hasClass( 'lt-66x33' );
       }
     } );
 
-    editor.widgets.add( 'clm_33', {
+    editor.widgets.add( 'lt_33', {
 
       editables: {
         left: {
-          selector: '.clm--33 .left'
+          selector: '.lt-33__clm--left'
         },
         center: {
-          selector: '.clm--33 .center'
+          selector: '.lt-33__clm--center'
         },
         right: {
-          selector: '.clm--33 .right'
+          selector: '.lt-33__clm--right'
         }
       },
-      allowedContent: 'div(!clm--33)',
-      requiredContent: 'div(clm--33)',
       upcast: function( element ) {
-        return element.name == 'div' && element.hasClass( 'clm--33' );
+        return element.name == 'div' && element.hasClass( 'lt-33' );
+      }
+    } );
+
+    editor.widgets.add( 'fp', {
+
+      editables: {
+        content: {
+          selector: '.fp__content'
+        }
+      },
+      upcast: function( element ) {
+        return element.name == 'div' && element.hasClass( 'fp' );
       }
     } );
 
