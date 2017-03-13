@@ -8,7 +8,6 @@ namespace Drupal\ckeditor_template_widget\Plugin\CKEditorPlugin;
 
 
 use Drupal\ckeditor\CKEditorPluginContextualInterface;
-use Drupal\ckeditor\CKEditorPluginCssInterface;
 use Drupal\ckeditor\CKEditorPluginInterface;
 use Drupal\Component\Plugin\PluginBase;
 use Drupal\editor\Entity\Editor;
@@ -21,7 +20,7 @@ use Drupal\editor\Entity\Editor;
  *   label = @Translation("Templates widget")
  * )
  */
-class TemplateWidget extends PluginBase implements CKEditorPluginInterface, CKEditorPluginContextualInterface, CKEditorPluginCssInterface {
+class TemplateWidget extends PluginBase implements CKEditorPluginInterface, CKEditorPluginContextualInterface {
 
   /**
    * Checks if this plugin should be enabled based on the editor configuration.
@@ -35,7 +34,20 @@ class TemplateWidget extends PluginBase implements CKEditorPluginInterface, CKEd
    */
   public function isEnabled(Editor $editor) {
 
-    return TRUE;
+    $enable = FALSE;
+    $settings = $editor->getSettings();
+
+    foreach ($settings['toolbar']['rows'] as $row) {
+      foreach ($row as $group) {
+        foreach ($group['items'] as $button) {
+          if ($button === 'Templates') {
+            $enable = TRUE;
+          }
+        }
+      }
+    }
+
+    return $enable;
   }
 
   /**
@@ -61,7 +73,9 @@ class TemplateWidget extends PluginBase implements CKEditorPluginInterface, CKEd
    */
   public function getDependencies(Editor $editor) {
 
-    return array();
+    return array(
+      'templates'
+    );
   }
 
   /**
@@ -92,8 +106,7 @@ class TemplateWidget extends PluginBase implements CKEditorPluginInterface, CKEd
    */
   public function getFile() {
 
-    return drupal_get_path('module', 'ckeditor_template_widget') . '/js/templatewidget/plugin.js';
-
+    return '/libraries/templatewidget/plugin.js';
   }
 
   /**
@@ -117,25 +130,5 @@ class TemplateWidget extends PluginBase implements CKEditorPluginInterface, CKEd
   public function getConfig(Editor $editor) {
 
     return array();
-  }
-
-  /**
-   * Retrieves enabled plugins' iframe instance CSS files.
-   *
-   * Note: this does not use a Drupal asset library because this CSS will be
-   * loaded by CKEditor, not by Drupal.
-   *
-   * @param \Drupal\editor\Entity\Editor $editor
-   *   A configured text editor object.
-   *
-   * @return string[]
-   *   An array of CSS files. This is a flat list of file paths relative to
-   *   the Drupal root.
-   */
-  public function getCssFiles(Editor $editor) {
-
-    return array(
-      drupal_get_path('module', 'system') . '/css/components/clearfix.module.css'
-    );
   }
 }

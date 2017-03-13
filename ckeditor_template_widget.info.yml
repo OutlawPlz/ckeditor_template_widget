@@ -1,4 +1,4 @@
-name: 'Template to Widget'
+name: 'Template Widget'
 description: 'Convert CKEditor Content Templates into Widgets.'
 
 core: 8.x

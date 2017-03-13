@@ -9,3 +9,6 @@ columns templates into widget.
 
 - Use BEM for classes. Added require property to CKEditor plugin. Load 
 clearfix.module.css into CKEditor. Added full-page slide template.
+
+- getDependencies(), requires templates, move plug-in to libraries/ folder.
+README. Remove clearfix.module.css, loaded by the template module.
